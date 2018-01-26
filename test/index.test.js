@@ -13,6 +13,13 @@ describe('Express test', function () {
         done();
       });
   });
-
+  it('Server is on on config port', function () {
+    chai.request(app)
+      .get('/')
+      .end(function (err, res) {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
 
 });
