@@ -21,12 +21,13 @@ describe('Express test', function () {
         done();
       });
   });
-  it('Server send bingo for get /bingo', function () {
+
+  it('Server send 31 ,10 ,80 ,44 ,66 for get /bingo', function () {
     chai.request(app)
       .get('/bingo')
       .end(function (err, res) {
         expect(res).to.have.status(200);
-        expect(res.body).to.be.eql("Bingo");
+        expect(res.body).to.be.eql("31 ,10 ,80 ,44 ,66");
         done();
       });
   });
