@@ -9,7 +9,18 @@ app.get('/bingo', function (req, res) {
         lines.forEach(function (item) {
             tmp = tmp + item + ",";
         });
-        res.send(tmp.substring(0, tmp.length - 2));
+        var num = tmp.substring(0, tmp.length - 2);
+        if (req.query.mynumbers) {
+            if (req.query.mynumbers === num.replace(/\s/g, '')) {
+                res.send("Bingo")
+            } else {
+                res.send("The bingo game is already started, sorry your numbers doesn't match with known numbers "
+                    + num
+                    + " ; so you can not say Bingo");
+            }
+        } else {
+            res.send("The bingo game is already started and known numbers are " + num)
+        }
     });
 })
 
