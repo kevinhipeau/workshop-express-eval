@@ -21,5 +21,14 @@ describe('Express test', function () {
         done();
       });
   });
+  it('Server send bingo for get /bingo', function () {
+    chai.request(app)
+      .get('/bingo')
+      .end(function (err, res) {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.eql("Bingo");
+        done();
+      });
+  });
 
 });

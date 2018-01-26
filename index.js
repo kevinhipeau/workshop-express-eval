@@ -2,7 +2,7 @@ let chalk = require('chalk');
 const app = require('./src/app');
 
 // port
-const port = process.argv[2] || 3000;
+const port = 4400;
 app.listen(port)
 
 // start server here
